@@ -1,0 +1,13 @@
+{
+  "_status": "PENDING — awaiting confirmed design tokens",
+  "_instructions": "Do not use these placeholder values in production. Wait for foundation lock.",
+  "fontFamily": {
+    "heading": null,
+    "body": null,
+    "mono": null
+  },
+  "scale": {},
+  "lineHeight": {},
+  "letterSpacing": {},
+  "fontWeight": {}
+}
