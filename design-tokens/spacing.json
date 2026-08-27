@@ -1,7 +1,18 @@
 {
-  "_status": "PENDING — awaiting confirmed design tokens",
-  "_instructions": "Do not use these placeholder values in production. Wait for foundation lock.",
-  "scale": {},
-  "sectionPadding": {},
-  "containerMaxWidth": null
+  "_status": "LOCKED",
+  "scale": {
+    "04": { "$type": "dimension", "$value": "4px" },
+    "08": { "$type": "dimension", "$value": "8px" },
+    "12": { "$type": "dimension", "$value": "12px" },
+    "16": { "$type": "dimension", "$value": "16px" },
+    "24": { "$type": "dimension", "$value": "24px" },
+    "32": { "$type": "dimension", "$value": "32px" },
+    "48": { "$type": "dimension", "$value": "48px" },
+    "64": { "$type": "dimension", "$value": "64px" },
+    "96": { "$type": "dimension", "$value": "96px" },
+    "128": { "$type": "dimension", "$value": "128px" }
+  },
+  "layout": {
+    "split_panel_padding": { "$type": "dimension", "$value": "{cerenetics.spacing.scale.96}", "resolved": "96px" }
+  }
 }

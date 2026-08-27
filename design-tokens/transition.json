@@ -1,0 +1,11 @@
+{
+  "_status": "LOCKED",
+  "_note": "Base transition tokens locked. Motion graphics, complex animations, and interactive timelines will be finalized during build.",
+  "duration": {
+    "fast": { "$type": "duration", "$value": "150ms" },
+    "base": { "$type": "duration", "$value": "300ms" }
+  },
+  "easing": {
+    "fluid": { "$type": "cubicBezier", "$value": [0.16, 1, 0.3, 1] }
+  }
+}

@@ -4,83 +4,74 @@ description: >-
   Encodes locked component patterns for the Cerenetics design system.
   Use this skill when building any reusable UI component — cards, buttons,
   navigation, CTAs, or page sections. Provides structural rules, composition
-  patterns, and accessibility requirements. Activate before creating or
-  modifying any component in the component library.
+  patterns, accessibility requirements, and exact token mappings.
 ---
 
 # Cerenetics Component Patterns
 
-> ⚠️ **STATUS: AWAITING FOUNDATION LOCK**
-> Component patterns depend on confirmed design tokens (colors, typography, spacing, radius).
-> Structural rules below are locked; visual specifications will be populated once
-> the `cerenetics-design-system` skill tokens are confirmed.
+> 🟢 **STATUS: LOCKED & ACTIVE**
+> Token mappings and structural patterns are fully locked and operational.
+> Build-time motion and animations are calibrated per section during implementation.
 
-## Locked Structural Rules
+---
 
-These rules apply regardless of pending token values.
+## 1. Button Patterns
 
-### Buttons
-- **Shape:** Pill-shaped (border-radius: `full` / `9999px`).
-- **States:** Every button must define `default`, `hover`, `active`, `focus-visible`, and `disabled` states.
-- **Accessibility:** Minimum touch target 44×44px. Always has accessible name (text content or `aria-label`).
-- **Variants:** Primary, Secondary, Ghost, Destructive — each with consistent token usage.
-- **Motion:** Subtle scale or opacity transition on hover. No jarring transforms.
+### Structural Rules
+- **Shape:** Pill-shaped (`rounded-full` / `radius.full`).
+- **Touch Target:** Minimum 44×44px.
+- **Typography:** `font-heading` or `font-body`, `font-bold` (700), size `16px` (`size.base`).
+- **Transition:** `transition-all duration-150 ease-[cubic-bezier(0.16,1,0.3,1)]` (`duration.fast` + `easing.fluid`).
 
-### Cards
-- **Shape:** Rounded rectangle — uses the defined card radius, NOT pill silhouette.
-- **Structure:** Content padding from spacing scale. Optional header/footer regions.
-- **Elevation:** Uses shadow tokens for depth.
-- **Interaction:** If interactive, must have focus ring and hover state.
+### Variants & Token Mapping
 
-### Navigation (Navbar)
-- **Shape:** Restrained rounded rectangle — NOT pill, NOT sharp corners.
-- **Behavior:** Sticky or fixed positioning with scroll-aware state changes.
-- **Content:** Logo (approved asset only — `Screenshot 2026-08-03 141135.svg` or equivalent), nav links, optional CTA.
-- **Mobile:** Responsive — hamburger or equivalent pattern for mobile breakpoints.
-- **Logo Rules:** Logo is brand chrome only. Never a centered content section, component laboratory, motion-mode panel, or case-study object.
+| Variant | Background Token | Text Token | Border Token | Hover State |
+|---|---|---|---|---|
+| **Primary / CTA** | `background.cta` (`#0A1128`) | `text.inverse` (`#ffffff`) | None | Opacity 90%, subtle scale (1.02) |
+| **Secondary** | `background.panel` (`#ebecff`) | `text.primary` (`#0A1128`) | `border.structural` (`#a3b4bc`) | Background `#dfe2fb` |
+| **Glass** | `background.glass` (`rgba(255,255,255,0.1)`) | `text.primary` (`#0A1128`) | `border.glass` (`rgba(255,255,255,0.3)`) | `backdrop-blur-[16px]`, bg-white/20 |
+| **Accent / Badge** | `text.accent_success` (`#d2fbd0`) | `text.primary` (`#0A1128`) | None | Glow / brightness 1.05 |
 
-### CTAs (Call to Action)
-- **Primary CTA:** Pill-shaped button. High contrast against background.
-- **Copy:** Concise action verbs. See `cerenetics-voice` skill for approved language patterns.
-- **Placement:** End of sections, not mid-content.
+---
 
-### Page Sections
-- **Vertical Rhythm:** All pages use consistent section padding from spacing scale.
-- **Content Width:** Defined max-width with centered content. Full-bleed for backgrounds only.
-- **Headings:** Follow type scale hierarchy — H1 once per page, H2 for sections, H3 for subsections.
+## 2. Card & Bento Grid Patterns
 
-## Page-Specific Component Rules
+### Structural Rules
+- **Shape:** Restrained rounded rectangle (`rounded-md` / `8px` or `rounded-sm` / `4px`). **Never pill silhouettes for cards.**
+- **Background:** `background.panel` (`#ebecff`) or `background.primary` (`#eff2f3`).
+- **Border:** `border.structural` (`#a3b4bc`) at 1px width, or `border.glass` (`rgba(255, 255, 255, 0.3)`) for glass cards.
+- **Padding:** Scale tokens `spacing.scale.24` (24px) or `spacing.scale.32` (32px).
+- **Split-Panel Hero Padding:** `spacing.layout.split_panel_padding` (`96px`).
 
-| Page | Primary Pattern | Character |
-|------|----------------|-----------|
-| Home | Hero + selective ambient motion | Focused, magnetic |
-| Work | Project cards, vertically staged | Proof-driven |
-| Approach | Process/systems visualization | Methodical |
-| Future | Radiant, aspirational sections | Most visually expressive page |
-| Contact | Form + minimal chrome | Quiet, functional |
+---
 
-## Motion Rules for Components
+## 3. Navigation (Navbar) Patterns
 
-1. **GSAP/ScrollTrigger** is the primary motion system — do not add competing animation libraries.
-2. Every animation must **clean up on unmount** and **respect `prefers-reduced-motion`**.
-3. Motion is **progressive enhancement** — content must be visible if JS fails. No unconditional `opacity: 0` in CSS.
-4. Keep ambient motion **selective and page-specific**. No constant decorative motion, random blobs, or scroll-jacking.
+### Structural Rules
+- **Shape:** Restrained floating rounded rectangle (`rounded-md` / `8px`).
+- **Surface:** Glassmorphic — `background.glass` (`rgba(255, 255, 255, 0.1)`), `border.glass` (`rgba(255, 255, 255, 0.3)`), `backdrop-blur-[16px]`.
+- **Typography:** Nav links use `font-heading`, size `16px` (`size.base`), text `text.primary` (`#0A1128`).
+- **Logo Usage:** Brand chrome only. Never transformed into a showcase sandbox.
 
-## Accessibility Requirements (All Components)
+---
 
-1. Semantic HTML elements (button, nav, main, section, article, etc.).
-2. ARIA attributes where semantic HTML is insufficient.
-3. Keyboard navigation support (tab order, focus management).
-4. Color contrast meets WCAG AA (4.5:1 text, 3:1 large text / UI components).
-5. Screen reader compatible — no information conveyed only through color or motion.
+## 4. Typography Application Classes
 
-## Activation Criteria
+| Intent | Font Family | Size | Weight | Tracking / Notes |
+|---|---|---|---|---|
+| Page Hero H1 | `font-heading` (`Space Grotesk`) | `72px` (`size.h1`) | `700` (`weight.bold`) | Leading tight |
+| Section Headline H2 | `font-heading` (`Space Grotesk`) | `48px` (`size.h2`) | `700` (`weight.bold`) | - |
+| Card Title H3 | `font-heading` (`Space Grotesk`) | `24px` (`size.h3`) | `700` (`weight.bold`) | - |
+| Editorial Emphasis | `font-accent` (`Fraunces`) | Contextual | Italic / regular | Highlighting key phrases |
+| Standard Body | `font-body` (`Inter`) | `16px` (`size.base`) | `400` (`weight.regular`) | `text.primary` or `text.secondary` |
+| Micro Eyebrows / Caps | `font-heading` (`Space Grotesk`) | `12px` (`size.micro`) | `700` | Uppercase, tracking `1.5px` (`heading_caps`) |
+| Data / Code / Metrics | `font-data` (`JetBrains Mono`) | `12px` - `16px` | `400` / `700` | Metric counters, tech specs |
+| Pixel / Retro Accents | `font-pixel` (`VT323`) | `16px` - `24px` | `400` | Tracking `0.5px` (`pixel_micro`) |
 
-Component visual specifications are **not active** until:
-- [ ] `cerenetics-design-system` skill tokens are fully confirmed
-- [ ] Color, typography, spacing, and radius values are locked
+---
 
-Once locked, this skill will be updated with:
-- Exact Tailwind class patterns for each component
-- Token-mapped color/spacing references
-- Specific responsive breakpoint behaviors
+## 5. Motion Guidelines
+
+- **Base Interactions:** Button hovers and standard UI state changes use `transition.duration.fast` (150ms) or `transition.duration.base` (300ms) with `transition.easing.fluid` (`cubic-bezier(0.16, 1, 0.3, 1)`).
+- **Motion Graphics & Animations:** Custom kinetic motion, GSAP ScrollTrigger timelines, and radiant interactive moments will be tailored per page during active build.
+- **Safety:** Always wrap animations in `prefers-reduced-motion` fallbacks and keep UI content visible without JavaScript.

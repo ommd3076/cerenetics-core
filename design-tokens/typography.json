@@ -1,13 +1,25 @@
 {
-  "_status": "PENDING — awaiting confirmed design tokens",
-  "_instructions": "Do not use these placeholder values in production. Wait for foundation lock.",
-  "fontFamily": {
-    "heading": null,
-    "body": null,
-    "mono": null
+  "_status": "LOCKED",
+  "family": {
+    "heading": { "$type": "fontFamily", "$value": "Space Grotesk, sans-serif" },
+    "body": { "$type": "fontFamily", "$value": "Inter, sans-serif" },
+    "accent_italic": { "$type": "fontFamily", "$value": "Fraunces, serif" },
+    "pixel": { "$type": "fontFamily", "$value": "VT323, monospace" },
+    "data": { "$type": "fontFamily", "$value": "JetBrains Mono, monospace" }
   },
-  "scale": {},
-  "lineHeight": {},
-  "letterSpacing": {},
-  "fontWeight": {}
+  "size": {
+    "micro": { "$type": "dimension", "$value": "12px" },
+    "base": { "$type": "dimension", "$value": "16px" },
+    "h3": { "$type": "dimension", "$value": "24px" },
+    "h2": { "$type": "dimension", "$value": "48px" },
+    "h1": { "$type": "dimension", "$value": "72px" }
+  },
+  "weight": {
+    "regular": { "$type": "fontWeight", "$value": "400" },
+    "bold": { "$type": "fontWeight", "$value": "700" }
+  },
+  "letterSpacing": {
+    "heading_caps": { "$type": "dimension", "$value": "1.5px" },
+    "pixel_micro": { "$type": "dimension", "$value": "0.5px" }
+  }
 }

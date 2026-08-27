@@ -1,0 +1,6 @@
+{
+  "_status": "LOCKED",
+  "glassmorphism": {
+    "backdrop_blur": { "$type": "dimension", "$value": "16px" }
+  }
+}
