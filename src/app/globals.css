@@ -2,14 +2,12 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   /* Fonts */
   --font-heading: var(--font-heading), sans-serif;
   --font-body: var(--font-body), sans-serif;
   --font-accent: var(--font-accent-italic), serif;
-  --font-pixel: var(--font-pixel), monospace;
+  --font-pixel: var(--font-pixel), "VT323", monospace;
   --font-data: var(--font-data), monospace;
 
   /* Cerenetics Primitives */
@@ -24,113 +22,74 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-panel: var(--panel);
-  --color-glass: var(--glass);
   --color-cta: var(--cta);
 
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-decorative: var(--text-decorative);
   --color-accent-success: var(--accent-success);
   --color-text-inverse: var(--text-inverse);
 
   --color-border-structural: var(--border-structural);
-  --color-border-glass: var(--border-glass);
-
-  /* shadcn compat */
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-
-  /* Corner Radius */
-  --radius-none: 0px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-full: 9999px;
 
   /* Transitions */
   --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 :root {
-  /* Semantic Backgrounds */
-  --background: #eff2f3;
+  --background: #ffffff;
   --panel: #ebecff;
-  --glass: rgba(255, 255, 255, 0.1);
   --cta: #0A1128;
 
-  /* Semantic Text */
   --foreground: #0A1128;
   --text-primary: #0A1128;
-  --text-secondary: #a3b4bc;
+  --text-secondary: #718096;
+  --text-muted: #4a5568;
   --accent-success: #d2fbd0;
   --text-inverse: #ffffff;
 
-  /* Semantic Borders */
-  --border: #a3b4bc;
-  --border-structural: #a3b4bc;
-  --border-glass: rgba(255, 255, 255, 0.3);
-
-  /* shadcn mappings */
-  --primary: #0A1128;
-  --primary-foreground: #ffffff;
-  --secondary: #ebecff;
-  --secondary-foreground: #0A1128;
-  --muted: #eff2f3;
-  --muted-foreground: #a3b4bc;
-  --accent: #d2fbd0;
-  --accent-foreground: #0A1128;
-  --destructive: #e5484d;
-  --input: #a3b4bc;
-  --ring: #0A1128;
-  --radius: 8px;
-}
-
-.dark {
-  /* Dark mode fallback / inverse palette if needed */
-  --background: #0A1128;
-  --panel: #111a3b;
-  --glass: rgba(255, 255, 255, 0.05);
-  --cta: #ffffff;
-
-  --foreground: #eff2f3;
-  --text-primary: #eff2f3;
-  --text-secondary: #a3b4bc;
-  --accent-success: #d2fbd0;
-  --text-inverse: #0A1128;
-
-  --border: rgba(163, 180, 188, 0.3);
-  --border-structural: rgba(163, 180, 188, 0.3);
-  --border-glass: rgba(255, 255, 255, 0.15);
-
-  --primary: #ffffff;
-  --primary-foreground: #0A1128;
-  --secondary: #111a3b;
-  --secondary-foreground: #eff2f3;
-  --muted: #111a3b;
-  --muted-foreground: #a3b4bc;
-  --accent: #d2fbd0;
-  --accent-foreground: #0A1128;
-  --destructive: #e5484d;
-  --input: rgba(163, 180, 188, 0.3);
-  --ring: #ffffff;
+  --border: #e2e8f0;
+  --border-structural: #cbd5e1;
 }
 
 @layer base {
   * {
-    @apply border-border;
+    box-sizing: border-box;
   }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
-    @apply bg-background text-foreground font-body;
+    min-height: 100vh;
+    color: var(--text-primary);
   }
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold tracking-tight;
+    @apply font-heading font-normal tracking-tight text-text-primary;
   }
+}
+
+/* VT323 pixel accent with retro-engineered sizing */
+.font-pixel-accent {
+  font-family: var(--font-pixel), "VT323", monospace;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  font-size: 0.9375rem;
+  line-height: 1.2;
+}
+
+.future-atmosphere {
+  background: radial-gradient(
+    ellipse at 70% 30%,
+    rgba(210, 251, 208, 0.5) 0%,
+    rgba(235, 236, 255, 0.9) 50%,
+    rgba(239, 242, 243, 1) 90%
+  );
 }

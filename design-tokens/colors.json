@@ -13,17 +13,22 @@
       "primary": { "$type": "color", "$value": "{cerenetics.color.primitive.off_white}", "resolved": "#eff2f3" },
       "panel": { "$type": "color", "$value": "{cerenetics.color.primitive.soft_blue}", "resolved": "#ebecff" },
       "glass": { "$type": "color", "$value": "rgba(255, 255, 255, 0.1)", "resolved": "rgba(255, 255, 255, 0.1)" },
+      "glass_nav": { "$type": "color", "$value": "rgba(255, 255, 255, 0.72)", "resolved": "rgba(255, 255, 255, 0.72)" },
+      "glass_hero": { "$type": "color", "$value": "rgba(255, 255, 255, 0.40)", "resolved": "rgba(255, 255, 255, 0.40)" },
       "cta": { "$type": "color", "$value": "{cerenetics.color.primitive.navy_black}", "resolved": "#0A1128" }
     },
     "text": {
       "primary": { "$type": "color", "$value": "{cerenetics.color.primitive.navy_black}", "resolved": "#0A1128" },
       "secondary": { "$type": "color", "$value": "{cerenetics.color.primitive.steel_gray}", "resolved": "#a3b4bc" },
+      "muted": { "$type": "color", "$value": "#404a52", "resolved": "#404a52" },
+      "decorative": { "$type": "color", "$value": "{cerenetics.color.primitive.steel_gray}", "resolved": "#a3b4bc" },
       "accent_success": { "$type": "color", "$value": "{cerenetics.color.primitive.pale_green}", "resolved": "#d2fbd0" },
       "inverse": { "$type": "color", "$value": "{cerenetics.color.primitive.pure_white}", "resolved": "#ffffff" }
     },
     "border": {
       "structural": { "$type": "color", "$value": "{cerenetics.color.primitive.steel_gray}", "resolved": "#a3b4bc" },
-      "glass": { "$type": "color", "$value": "rgba(255, 255, 255, 0.3)", "resolved": "rgba(255, 255, 255, 0.3)" }
+      "glass": { "$type": "color", "$value": "rgba(255, 255, 255, 0.3)", "resolved": "rgba(255, 255, 255, 0.3)" },
+      "glass_strong": { "$type": "color", "$value": "rgba(255, 255, 255, 0.6)", "resolved": "rgba(255, 255, 255, 0.6)" }
     }
   }
 }
